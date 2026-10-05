@@ -65,6 +65,7 @@ public class trainingSession {
         System.out.println("Instructor: " + instructor);
         System.out.println("Number of participants: " + participants.size());
         System.out.println("Availiable Spaces: " + getAvailableSpaces());
+
     }
 
 }
