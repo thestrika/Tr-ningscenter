@@ -13,6 +13,7 @@ public class Member {
     public Member(String name, int memberId, String memberType) {
         this.name = name;
         this.memberId = memberId;
+        this.memberType = memberType;
         if(memberType.equals("free")) {
             this.maxBookings = 5;
             this.monthlyPrice = 0;
