@@ -16,18 +16,20 @@ efterhånden som du laver klasserne i trin 2 i TRIN2.md og TRIN3.md
 
 public class UI {
     private Scanner scan; //læser input fra brugeren med en Scanner
-    private FitnessCenter fitnessCenter;
+    private fitnessCenter fitnessCenter;
 
     // TODO : Når du har lavet FitnessCenter, skal UI'en have et felt til det:
     // private FitnessCenter center;
 
 
-    public UI(Scanner scan, FitnessCenter fitnessCenter) {
+    public UI(Scanner scan, fitnessCenter fitnessCenter) {
         this.scan = scan;
         this.fitnessCenter = fitnessCenter;
         // TODO (2.6): Modtag et FitnessCenter i konstruktøren, og gem det i feltet
     }
 
+    public UI(Scanner scan) {
+    }
 
 
     public void run() {
@@ -156,8 +158,9 @@ public class UI {
 
         if (success){
             System.out.println("Træningstimen er booket.");
-        } else
-
+        } else {
+            System.out.println("Kunne ikke booke træningstimen.");
+        }
         notImplemented();
     }
 
@@ -165,14 +168,40 @@ public class UI {
         int memberId = readInt("Medlemsnummer: ");
         String title = readText("Træningstime der skal afmeldes: ");
 
+        Member member = fitnessCenter.findMember(memberId);
+        trainingSession session = fitnessCenter.findsession(title);
         // TODO: Find medlemmet og træningstimen, og bed FitnessCenter om at afmelde bookingen
+        if (member == null) {
+            System.out.println("Medlemmet blev ikke fundet.");
+            return;
+        } if (session == null) {
+            System.out.println("Træningstimen blev ikke fundet");
+            return;
+        }
+
+         boolean success = fitnessCenter.cancelBooking(member, session);
+
+        if (success) {
+            System.out.println("Bookingen er afmeldt");
+        } else {
+            System.out.println("Kunne ikke admelde bookingen");
+        }
         notImplemented();
     }
 
     private void showBookings() {
         int memberId = readInt("Medlemsnummer: ");
 
+        Member member = fitnessCenter.findMember(numberId);
+
         // TODO: Find medlemmet, og udskriv medlemmets aktive bookinger
+
+        if(member == null) {
+            System.out.println("Medlemmet blev ikke fundet");
+            return
+        }
+
+        member.printBookings();
         notImplemented();
     }
 
