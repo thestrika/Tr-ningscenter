@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class FitnessCenter {
 private String name;
 private ArrayList<Member>;
-private Arraylist<TrainingSession>;
+private Arraylist<trainingSession>;
 
 public FitnessCenter(String name){
     this.name=name;
     this.Member=new ArrayList<>();
-    this.TrainingSession=new ArrayList<>();
+    this.trainingSession=new ArrayList<>();
 }
 
     public String getName() {

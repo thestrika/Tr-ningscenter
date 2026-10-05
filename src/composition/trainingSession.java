@@ -1,6 +1,4 @@
 package composition;
-
-import java.lang.reflect.Member;
 import java.util.ArrayList;
 
 public class trainingSession {
