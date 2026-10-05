@@ -2,10 +2,10 @@ package composition;
 
 public class Booking {
     private Member member;
-    private TrainingSession trainingSession;
+    private trainingSession trainingSession;
     private boolean isActive;
 
-    public Booking(Member member, TrainingSession trainingSession){
+    public Booking(Member member, trainingSession trainingSession){
         this.member = member;
         this.trainingSession = trainingSession;
         this.isActive = true;
@@ -15,12 +15,15 @@ public class Booking {
         return member;
     }
 
-    public TrainingSession getTrainingSession(){
+    public trainingSession getTrainingSession(){
         return trainingSession;
     }
 
     public void cancel(){
-
+        if (isActive) {
+            isActive = false;
+            trainingSession.removeParticipant(member);
+        }
     }
 
     public boolean isActive(){
